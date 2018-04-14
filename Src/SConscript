@@ -1,0 +1,12 @@
+import os
+Import('env')
+
+subdirs = ['ObjectCounter']
+SConscript(dirs = subdirs, exports='env')
+
+theEnv = env.Clone()
+theEnv.AppendUnique(LIBS = ['ObjectCounter'])
+theEnv.AppendUnique(LIBPATH = ['ObjectCounter'])
+
+srcCodes = Glob('*.cpp')
+theEnv.Program(target = '#main.exe', source = srcCodes)

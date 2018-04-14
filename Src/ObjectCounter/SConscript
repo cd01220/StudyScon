@@ -1,0 +1,7 @@
+import os
+Import('env')
+
+srcCodes = Glob('*.cpp')
+env.StaticLibrary(target = 'libObjectCounter',
+                  source = srcCodes,
+                  LIBS = '')
